@@ -1,0 +1,77 @@
+/*--------------default styles--------------------*/
+@keyframes button {
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(100);
+    }
+}
+@keyframes buttonActive {
+    0%{
+        background: inherit;
+    }
+
+    100%{
+        background: red;
+    }
+}
+.button {
+    padding: 10px 15px;
+    border: 1px solid rgba(229, 224, 224, 0.57);
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+.default {
+    color: #453f5d;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.default:disabled {
+    opacity: 50%;
+    animation: none;
+}
+.default:disabled:hover{
+    animation: none;
+}
+.default:hover:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    top: 50%;
+    left: 50%;
+    background: #c2b8d7;
+    opacity: 0.2;
+    transform: rotate(45deg);
+    border-radius: 100%;
+}
+.default:hover:before {
+    animation: button 1000ms linear;
+}
+.default:focus{
+    outline: 2px solid #c1acc8;
+}
+.default:active {
+    animation: buttonActive 300ms ease-in forwards;
+}
+.primary {
+    background: #ffffff;
+    color: #365a67;
+}
+
+/*--------------default styles is ending--------------------*/
+
+.secondary {
+    background: #365a67;
+}
+.danger {
+    font-weight: 700;
+    color: #fc9c92;
+}

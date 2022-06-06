@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement, useEffect } from 'react'
 
-function App() {
+import { useDispatch } from 'react-redux'
+
+import { ErrorSnackbar } from './components/common/ErrorSnackbar/ErrorSnackbar'
+
+import s from 'App.module.scss'
+import preloader from 'assets/Rocket.gif'
+import { Router } from 'components/routes'
+import { useAppSelector } from 'hooks'
+import { requestInitialize } from 'store/reducers/appReducer'
+
+const App = (): ReactElement => {
+  const isInitialized = useAppSelector<boolean>(state => state.app.isInitialized)
+  const isLoggedIn = useAppSelector<boolean>(state => state.auth.isLoggedIn)
+  const isEditMode = useAppSelector<boolean>(state => state.app.isEditMode)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (isLoggedIn) return
+    dispatch(requestInitialize())
+  }, [])
+
+  if (!isInitialized && !isLoggedIn) {
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: '30%',
+          textAlign: 'center',
+          width: '100%',
+        }}
+      >
+        <img src={preloader} alt="preloader" />
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isEditMode ? `${s.appScrollHidden} ${s.app}` : s.app}>
+      <Router />
+      <ErrorSnackbar />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
