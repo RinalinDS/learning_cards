@@ -202,6 +202,8 @@ export const TablePage: FC = () => {
     setCheckboxValue(false)
     setModalOpen(false)
   }
+
+
   return (
     <div className={s.table}>
       {location.pathname === Paths.Profile ? (

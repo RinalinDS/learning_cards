@@ -10,14 +10,15 @@ import { createNewCard, deleteOneCard, getPacksS, updateOneCard } from '../../st
 import { CardTypePartial } from '../../types/PackTypes'
 import { Button } from '../common'
 
-import { AddCardInputForm } from './AddCardInputForm/AddCardInputForm'
-import { EditCardInputForm } from './AddCardInputForm/EditCardInputForm'
+import { AddCardInputForm } from './ModalInputForms/AddCardInputForm'
+import { EditCardInputForm } from './ModalInputForms/EditCardInputForm'
 import CardsHeader from './CardsHeader'
 import CardsTableHeader from './CardsTableHeader'
 import { CardTableRow } from './CardTableRow'
 import LearnPage from './Learn/Learn'
-import DeleteCard from './Modal/DeleteCardModal/DeleteCard'
+
 import ModalForCards from './Modal/ModalForCards/ModalForCards'
+import DeleteCard from './ModalInputForms/DeleteCardModal/DeleteCard';
 
 const CardsTable: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams()

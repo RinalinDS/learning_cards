@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Header } from './header/Header'
 
 import { Paths } from 'enums'
-import { Auth, Login, MainPage, NotFound, Profile, RestorePassword, TestComponent } from 'pages'
+import { Auth, Login, MainPage, NotFound, Profile, RestorePassword } from 'pages'
 
 export const Router: FC = (): ReactElement => (
   <Routes>
@@ -15,7 +15,6 @@ export const Router: FC = (): ReactElement => (
       <Route path={Paths.Login} element={<Login />} />
       <Route path={Paths.RestorePassword} element={<RestorePassword />} />
       <Route path={Paths.Profile} element={<Profile />} />
-      <Route path={Paths.Test} element={<TestComponent />} />
       <Route path={Paths.NotFound} element={<NotFound />} />
     </Route>
   </Routes>

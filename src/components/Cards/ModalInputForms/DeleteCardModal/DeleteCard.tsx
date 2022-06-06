@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from 'components/Cards/AddCardInputForm/style/AddCardInputForm.module.css'
+import s from 'components/Cards/ModalInputForms/style/AddCardInputForm.module.css'
 import { Button } from 'components/common'
 
 type propsType = {
