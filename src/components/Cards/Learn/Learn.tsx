@@ -65,7 +65,7 @@ const LearnPage: React.FC<PropsType> = ({ deactivateModal }) => {
       setCard(getCard(cards))
     }
   }
-console.log(cards, card)
+
   return (
     /* можно тут если тру , то стили менять карточки, тогда вроде норм будет? */
     <div className={s.container}>
